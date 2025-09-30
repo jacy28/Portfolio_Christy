@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christy | Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="icon" href="{% static 'images/icon.png' %}">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <div class="d-flex align-items-center justify-content-center">
+        <a class="navbar-brand" href="#"><img src="{% static 'images/icon.png' %}" alt="logo img" class="logo"></a>
+      </div>
+
+      <!-- Toggle for mobile -->
+      <button class="navbar-toggler custom-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto text-center">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        </ul>
+        <!-- CTA button -->
+        <div class="w-100 text-center d-lg-none mt-2">
+          <!-- Mobile: centered -->
+          <a href="#contact" class="btn contact-btn">Contact Us</a>
+        </div>
+        <div class="d-none d-lg-block">
+          <!-- Desktop: aligned right -->
+          <a href="#contact" class="btn contact-btn">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="my-2">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-12 col-md-6 d-flex align-items-center justify-content-center order-md-2 mb-3 mb-md-0">
+          <img src="{% static 'images/christy.jpg' %}" alt="hero_img" class="img-fluid hero-img">
+        </div>
+
+        <div class="col-12 col-md-6 order-md-1">
+          <div class="text-center text-md-start">
+            <h2 class="text-white mt-0 mt-md-5 mb-3">Hi, I'm <span class="fw-bold"
+                style="font-size: 22px; color: purple;">CHRISTY METHILA</span></h2>
+            <h1 class="mb-3 fw-bold text-white">Python Full Stack Developer</h1>
+            <p class="mb-4 mb-md-5">
+              I’m a passionate Full Stack Developer focused on crafting seamless web applications.
+              I work with Python, Django, and have hands-on experience with React for building interactive UI
+              components,
+              bringing ideas to life with clean, user-friendly, and engaging designs.
+            </p>
+            <a href="#projects" class="btn fw-bold custom-project-btn me-2">My Projects</a>
+            <a href="#contact" class="btn custom-contact-btn fw-bold">Contact Me</a><br>
+          </div>
+
+          <div
+            class="social-media d-flex gap-3 mt-4 mt-md-5 align-items-center justify-content-center justify-content-md-start">
+            <a href="https://www.linkedin.com/in/christy-methila-69778723a" target="_blank"
+              class="d-inline-flex align-items-center justify-content-center bg-light rounded-circle me-2 custom-icon">
+              <i class="bi bi-linkedin fs-5" style="color:#800080;"></i>
+            </a>
+            <a href="https://github.com/jacy28" target="_blank"
+              class="d-inline-flex align-items-center justify-content-center bg-light text-dark rounded-circle me-2 custom-icon">
+              <i class="bi bi-github fs-4" style="color:#800080;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container text-center text-md-start my-4 my-md-5">
+      <h3 class="text-white fw-bold text-md-center mb-4">About Me</h3>
+      <p class="about-content">Hi, I’m Christy Methila. I started my career as a Technical Associate, working in
+        recruitment and business development for 3.5 years
+        learning how to understand client needs, build relationships, and deliver value-driven solutions. During this
+        time, I discovered my passion for problem-solving and technology, which inspired me to transition into software
+        development. <br><br>
+        I have completed a Python Full Stack Development course and gained skills in Python, Django, Flask, SQL, HTML,
+        CSS, and Bootstrap. I also have hands-on experience with React through small frontend projects. I enjoy
+        combining my business background with technical expertise to build responsive, user-friendly, and impactful
+        digital solutions.
+        <br><br>
+        My unique strength lies in bridging the gap between business needs and technical execution, which allows me to
+        approach development not just from a coding perspective, but also with an understanding of the end user and the
+        bigger picture.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container my-4">
+      <h3 class="text-white text-center mb-5">My Skills</h3>
+      <div class="row g-3 justify-content-center">
+        {% for skill in skills %}
+        <div class="col-6 col-md-3 mb-3">
+          <div class="text-center">
+            {% if skill.icon %}
+            <img src="{{skill.icon.url}}" alt="{{skill.name}}" class="skill-icon">
+            {% endif %}
+            <h5 class="text-white mt-3 skill-name">{{skill.name}}</h5>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container my-4">
+      <h3 class="text-white fw-bold text-center mb-4">Projects</h3>
+      <div class="row g-4">
+        {% for project in projects %}
+        <div class="col-md-6 d-flex">
+          <div class="project-card p-3 flex-fill">
+            {% if project.image %}
+            <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid rounded-4 mb-2 project-img">
+            {% endif %}
+            <div class="project-card-body d-flex flex-column">
+              <h5 class="fw-bold text-white">{{ project.title }}</h5>
+              <p class="flex-grow-1">{{ project.desc }}</p>
+              {% if project.link %}
+              <div class="text-center mt-2">
+                <a href="{{ project.link }}" target="_blank" class="btn contact-btn">View Project</a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+
+  <section id="contact">
+    <div class="container my-5">
+      <h3 class="text-white fw-bold text-center mb-4">Contact Me</h3>
+
+      <div class="row justify-content-center">
+
+        <!-- Contact Info -->
+        <div class="col-md-4 mb-4 text-center text-md-start">
+          <h5 class="text-white fw-bold mb-3">Get in Touch</h5>
+          <p class="text-white mb-2"><strong>Email:</strong> christy.methila@gmail.com</p>
+          <p class="text-white mb-2"><strong>Phone:</strong> 9487012812</p>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="col-md-6">
+          <form id="contactForm">
+            {% csrf_token %}
+            <div class="mb-3">
+              <input type="text" name="name" class="form-control" placeholder="Enter Name" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn custom-contact-btn fw-bold">Send Message</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="feedbackModal" class="modal fade" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered text-center">
+            <div class="modal-content p-4">
+              <!-- Spinner Section -->
+              <div id="modalSpinner">
+                <div class="spinner-border" style="color: #800080;" role="status" style="width: 3rem; height: 3rem;"></div>
+                <h5 class="mt-3">Sending your message...</h5>
+              </div>
+
+              <!-- Success Section -->
+              <div id="modalSuccess" style="display:none;">
+                <h5 class="fw-bold text-success" id="successMessage"></h5>
+                <button class="btn mt-3 text-white" style="background-color: #800080;"
+                  onclick="bootstrap.Modal.getInstance(document.getElementById('feedbackModal')).hide()">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>

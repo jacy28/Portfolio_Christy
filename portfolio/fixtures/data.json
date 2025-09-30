@@ -1,0 +1,74 @@
+[
+    {
+        "model": "portfolio.skill",
+        "pk":1,
+        "fields":{
+            "name":"Django", 
+            "icon": "skills/django.png"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk":2,
+        "fields":{
+            "name":"Flask", 
+            "icon": "skills/flask.png"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk":3,
+        "fields":{
+            "name":"SQL", 
+            "icon": "skills/sql.png"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk":4,
+        "fields":{
+            "name":"Tkinter", 
+            "icon": "skills/tkinter.png"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk":5,
+        "fields":{
+            "name":"Python", 
+            "icon": "skills/python.png"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk":6,
+        "fields":{
+            "name":"JavaScript", 
+            "icon": "skills/js.png"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk":7,
+        "fields":{
+            "name":"Bootstrap", 
+            "icon": "skills/bootstrap.png"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk":8,
+        "fields":{
+            "name":"CSS", 
+            "icon": "skills/css.png"
+        }
+    },
+    {
+        "model": "portfolio.skill",
+        "pk":9,
+        "fields":{
+            "name":"HTML", 
+            "icon": "skills/html.png"
+        }
+    }
+]
